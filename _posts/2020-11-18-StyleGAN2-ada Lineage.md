@@ -69,7 +69,7 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
     ```
    
    
-   - Generator 학습 방식(<a href="https://developers.google.com/machine-learning/gan/generator">참조</a><br>)
+   - Generator 학습 방식(<a href="https://developers.google.com/machine-learning/gan/generator">참조</a>)<br>
      So we train the generator with the following procedure:
     1. Sample random noise.
     1. Produce generator output from sampled random noise.
