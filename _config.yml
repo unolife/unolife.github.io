@@ -95,8 +95,8 @@ analytics:
 author:
   name             : "SBS"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "normal person"
-  location         : "Somewhere"
+  bio              : "GAN을 공부하고 있는 개발자"
+  location         : "South Korea"
   email            :
   links:
     - label: "Email"
