@@ -40,15 +40,7 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
 
         return model
     ```
-    ![g_model](https://user-images.githubusercontent.com/38601861/99515040-c9783700-29cf-11eb-945c-36014cd8c933.png)
-    
-    > Dense(7*7*256, use_bias=False, input_shape=(100,)))<br>
-      input arrays of shape = (None, 100)<br>
-      output arrays of shape = (None, 12544)<br>
-    > Conv2DTranspose<br>
-      Input:<br>
-      Output:
-
+    ![image](https://user-images.githubusercontent.com/38601861/99522048-81a9dd80-29d8-11eb-89c5-f48da45d062d.png)
 
     - Discriminator
     ```python
@@ -68,6 +60,7 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
 
         return model
     ```
+    ![image](https://user-images.githubusercontent.com/38601861/99522234-bb7ae400-29d8-11eb-91cc-072fa3d86001.png)
 
 
     - Generator 학습 방식(<a href="https://developers.google.com/machine-learning/gan/generator">참조</a>)<br>
