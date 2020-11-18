@@ -7,15 +7,12 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
 
 2014.06.10 - 1. GAN / <a href="https://arxiv.org/pdf/1406.2661.pdf">Paper </a><br>
 2017.10.27 - 2. PGGAN / <a href="https://arxiv.org/pdf/1710.10196v1.pdf">Paper v1</a> / <a href="https://arxiv.org/pdf/1710.10196v3.pdf">Paper v3 </a> (2018.02.26)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(baseline of styleGAN)<br> 
 2018.12.12 - 3. styleGAN / <a href="https://arxiv.org/pdf/1812.04948v1.pdf">Paper v1</a> /<a href="https://arxiv.org/pdf/1812.04948v3.pdf">Paper v3</a> (2019.03.29)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(First Version)<br>
 2019.12.03 - 4. styleGAN / <a href="https://github.com/NVlabs/stylegan">Github</a> / <a href="https://arxiv.org/pdf/1912.04958v1.pdf">Paper</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Analyzing and Improving the Image Quality of StyleGAN)<br>
 2020.03.23 - 5. styleGAN2 / <a href="https://github.com/NVlabs/stylegan2">Github</a> / <a href="https://arxiv.org/pdf/1912.04958v2.pdf">Paper</a><br>
 2020.10.07 - 6. styleGAN2-ada / <a href="https://github.com/NVlabs/stylegan2-ada">Github</a> / <a href="https://arxiv.org/pdf/2006.06676.pdf">Paper</a><br>
 
--  <b>1.GAN(Generative Adversarial Networks)</b><br>
+- <b>1.GAN(Generative Adversarial Networks)</b><br>
   GAN에 대한 정보는 무수히 많기 때문에 <a href="https://www.tensorflow.org/tutorials/generative/dcgan?hl=ko">tensorflow 공식 문서</a>에 있는 Generator와 Discriminator 두 모델의 Keras layer들만 살펴보고 넘어갈거다.
     - Generator
     ```python
@@ -83,6 +80,11 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
     This is one iteration of generator training. <br>
     <br>랜덤 노이즈로부터 이미지를 만들고, D 모델에 넣어서 결과(real/fake)를 얻고, D 분류 결과에 대한 loss를 계산한다.<br>
     G와 D 모두 역전파를 해서 얻은 gradient(경사, 기울기)를 이용해서 G의 w(가중치)들을 갱신한다.
+
+- <b>2.PGGAN(Progressive Growing GAN)</b> - baseline of styleGAN<br>
+- <b>3.styleGAN(A Style-Based Generator Architecture for GAN)</b> - First Version<br>
+- <b>4.styleGAN(Analyzing and Improving the Image Quality of StyleGAN)</b> - Improved Version<br>
+- <b>5.styleGAN2</b><br>
 
 - <b>6.styleGAN2-ada</b><br>
   styleGAN2-ada 논문은 "Training Generative Adversarial Networks with Limited Data"라는 이름으로 발표됐다.<br>
