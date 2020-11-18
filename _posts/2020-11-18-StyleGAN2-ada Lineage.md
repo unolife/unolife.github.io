@@ -11,11 +11,11 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
 2018.12.12 - 3. styleGAN / <a href="https://arxiv.org/pdf/1812.04948v1.pdf">Paper v1</a> /<a href="https://arxiv.org/pdf/1812.04948v3.pdf">Paper v3</a> (2019.03.29)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(First Version)<br>
 2019.12.03 - 4. styleGAN / <a href="https://github.com/NVlabs/stylegan">Github</a> / <a href="https://arxiv.org/pdf/1912.04958v1.pdf">Paper</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Analyzing and Improving the Image Quality of StyleGAN)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Analyzing and Improving the Image Quality of StyleGAN)<br>
 2020.03.23 - 5. styleGAN2 / <a href="https://github.com/NVlabs/stylegan2">Github</a> / <a href="https://arxiv.org/pdf/1912.04958v2.pdf">Paper</a><br>
 2020.10.07 - 6. styleGAN2-ada / <a href="https://github.com/NVlabs/stylegan2-ada">Github</a> / <a href="https://arxiv.org/pdf/2006.06676.pdf">Paper</a><br>
 
--  1.<b>GAN(Generative Adversarial Networks)</b><br>
+-  <b>1.GAN(Generative Adversarial Networks)</b><br>
   GAN에 대한 정보는 무수히 많기 때문에 <a href="https://www.tensorflow.org/tutorials/generative/dcgan?hl=ko">tensorflow 공식 문서</a>에 있는 Generator와 Discriminator 두 모델의 Keras layer들만 살펴보고 넘어갈거다.
     - Generator
     ```python
