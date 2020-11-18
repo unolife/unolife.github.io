@@ -17,55 +17,56 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
     - Generator
     ```python
     def make_generator_model():
-      model = tf.keras.Sequential()
-      model.add(layers.Dense(7*7*256, use_bias=False, input_shape=(100,)))
-      model.add(layers.BatchNormalization())
-      model.add(layers.LeakyReLU())
+        model = tf.keras.Sequential()
+        model.add(layers.Dense(7*7*256, use_bias=False, input_shape=(100,)))
+        model.add(layers.BatchNormalization())
+        model.add(layers.LeakyReLU())
 
-      model.add(layers.Reshape((7, 7, 256)))
-      assert model.output_shape == (None, 7, 7, 256) # 주목: 배치사이즈로 None이 주어집니다.
+        model.add(layers.Reshape((7, 7, 256)))
+        assert model.output_shape == (None, 7, 7, 256) # 주목: 배치사이즈로 None이 주어집니다.
 
-      model.add(layers.Conv2DTranspose(128, (5, 5), strides=(1, 1), padding='same', use_bias=False))
-      assert model.output_shape == (None, 7, 7, 128)
-      model.add(layers.BatchNormalization())
-      model.add(layers.LeakyReLU())
+        model.add(layers.Conv2DTranspose(128, (5, 5), strides=(1, 1), padding='same', use_bias=False))
+        assert model.output_shape == (None, 7, 7, 128)
+        model.add(layers.BatchNormalization())
+        model.add(layers.LeakyReLU())
 
-      model.add(layers.Conv2DTranspose(64, (5, 5), strides=(2, 2), padding='same', use_bias=False))
-      assert model.output_shape == (None, 14, 14, 64)
-      model.add(layers.BatchNormalization())
-      model.add(layers.LeakyReLU())
+        model.add(layers.Conv2DTranspose(64, (5, 5), strides=(2, 2), padding='same', use_bias=False))
+        assert model.output_shape == (None, 14, 14, 64)
+        model.add(layers.BatchNormalization())
+        model.add(layers.LeakyReLU())
 
-      model.add(layers.Conv2DTranspose(1, (5, 5), strides=(2, 2), padding='same', use_bias=False, activation='tanh'))
-      assert model.output_shape == (None, 28, 28, 1)
+        model.add(layers.Conv2DTranspose(1, (5, 5), strides=(2, 2), padding='same', use_bias=False, activation='tanh'))
+        assert model.output_shape == (None, 28, 28, 1)
 
-      return model
+        return model
     ```
+    
     > Dense(7*7*256, use_bias=False, input_shape=(100,)))<br>
       input arrays of shape = (None, 100)<br>
       output arrays of shape = (None, 12544)
 
-    > Conv2DTranspose<br>
-      Input:<br>
-      Output:
+      > Conv2DTranspose<br>
+        Input:<br>
+        Output:
 
 
     - Discriminator
     ```python
     def make_discriminator_model():
-      model = tf.keras.Sequential()
-      model.add(layers.Conv2D(64, (5, 5), strides=(2, 2), padding='same',
-                                       input_shape=[28, 28, 1]))
-      model.add(layers.LeakyReLU())
-      model.add(layers.Dropout(0.3))
+        model = tf.keras.Sequential()
+        model.add(layers.Conv2D(64, (5, 5), strides=(2, 2), padding='same',
+                                         input_shape=[28, 28, 1]))
+        model.add(layers.LeakyReLU())
+        model.add(layers.Dropout(0.3))
 
-      model.add(layers.Conv2D(128, (5, 5), strides=(2, 2), padding='same'))
-      model.add(layers.LeakyReLU())
-      model.add(layers.Dropout(0.3))
+        model.add(layers.Conv2D(128, (5, 5), strides=(2, 2), padding='same'))
+        model.add(layers.LeakyReLU())
+        model.add(layers.Dropout(0.3))
 
-      model.add(layers.Flatten())
-      model.add(layers.Dense(1))
+        model.add(layers.Flatten())
+        model.add(layers.Dense(1))
 
-      return model
+        return model
     ```
 
 
@@ -87,8 +88,7 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
 - <b>5.styleGAN2</b><br>
 
 - <b>6.styleGAN2-ada</b><br>
-  styleGAN2-ada 논문은 "Training Generative Adversarial Networks with Limited Data"라는 이름으로 발표됐다.<br>
-  styleGAN2를 기반으로 소량의 데이터셋에서도 학습이 가능하도록 만든 논문이다.<br>
+  styleGAN2-ada 논문은 "Training Generative Adversarial Networks with Limited Data"라는 이름으로 발표됐다.styleGAN2를 기반으로 소량의 데이터셋에서도 학습이 가능하도록 만든 논문이다.<br><br>
   <a href="https://arxiv.org/pdf/2006.06676v1.pdf">version1</a>(2020.06.11)도 있는데,v1 기반으로 v2에 추가적인 연구 성과가 더해진것이기 때문에 v2만 읽어도 될거 같다. v2에 v1의 내용이 대부분 들어 있다.
 
 cf) visualization for model: https://machinelearningmastery.com/visualize-deep-learning-neural-network-model-keras/
