@@ -12,7 +12,7 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
 2020.03.23 - 5. styleGAN2 / <a href="https://github.com/NVlabs/stylegan2">Github</a> / <a href="https://arxiv.org/pdf/1912.04958v2.pdf">Paper</a><br>
 2020.10.07 - 6. styleGAN2-ada / <a href="https://github.com/NVlabs/stylegan2-ada">Github</a> / <a href="https://arxiv.org/pdf/2006.06676.pdf">Paper</a><br>
 
-- 1. GAN(Generative Adversarial Networks)
+1. GAN(Generative Adversarial Networks)
   GAN에 대한 정보는 무수히 많기 때문에 <a href="https://www.tensorflow.org/tutorials/generative/dcgan?hl=ko">tensorflow 공식 문서</a>에 있는 Generator와 Discriminator 두 모델의 Keras layer들만 살펴보고 넘어갈거다.
   - Generator
     ```python
