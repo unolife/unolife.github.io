@@ -12,6 +12,54 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
 2020.03.23 - styleGAN2 / <a href="https://github.com/NVlabs/stylegan2">Github</a> / <a href="https://arxiv.org/pdf/1912.04958v2.pdf">Paper</a><br>
 2020.10.07 - styleGAN2-ada / <a href="https://github.com/NVlabs/stylegan2-ada">Github</a> / <a href="https://arxiv.org/pdf/2006.06676.pdf">Paper</a><br>
 
+- GAN(Generative Adversarial Networks)
+  GAN에 대한 정보는 무수히 많기 때문에 <a href="https://www.tensorflow.org/tutorials/generative/dcgan?hl=ko">tensorflow 공식 문서</a>에 있는 Generator와 Discriminator 두 모델의 Keras layer들만 살펴보고 넘어갈거다.
+  - Generator
+    ```python
+    def make_generator_model():
+      model = tf.keras.Sequential()
+      model.add(layers.Dense(7*7*256, use_bias=False, input_shape=(100,)))
+      model.add(layers.BatchNormalization())
+      model.add(layers.LeakyReLU())
+
+      model.add(layers.Reshape((7, 7, 256)))
+      assert model.output_shape == (None, 7, 7, 256) # 주목: 배치사이즈로 None이 주어집니다.
+
+      model.add(layers.Conv2DTranspose(128, (5, 5), strides=(1, 1), padding='same', use_bias=False))
+      assert model.output_shape == (None, 7, 7, 128)
+      model.add(layers.BatchNormalization())
+      model.add(layers.LeakyReLU())
+
+      model.add(layers.Conv2DTranspose(64, (5, 5), strides=(2, 2), padding='same', use_bias=False))
+      assert model.output_shape == (None, 14, 14, 64)
+      model.add(layers.BatchNormalization())
+      model.add(layers.LeakyReLU())
+
+      model.add(layers.Conv2DTranspose(1, (5, 5), strides=(2, 2), padding='same', use_bias=False, activation='tanh'))
+      assert model.output_shape == (None, 28, 28, 1)
+
+      return model
+    ```
+    
+  - Discriminator
+    ```python
+    def make_discriminator_model():
+      model = tf.keras.Sequential()
+      model.add(layers.Conv2D(64, (5, 5), strides=(2, 2), padding='same',
+                                       input_shape=[28, 28, 1]))
+      model.add(layers.LeakyReLU())
+      model.add(layers.Dropout(0.3))
+
+      model.add(layers.Conv2D(128, (5, 5), strides=(2, 2), padding='same'))
+      model.add(layers.LeakyReLU())
+      model.add(layers.Dropout(0.3))
+
+      model.add(layers.Flatten())
+      model.add(layers.Dense(1))
+
+      return model
+    ```
+
 - <b>styleGAN2-ada</b><br>
   styleGAN2-ada 논문은 "Training Generative Adversarial Networks with Limited Data"라는 이름으로 발표됐다.<br>
   styleGAN2를 기반으로 소량의 데이터셋에서도 학습이 가능하도록 만든 논문이다.<br>
