@@ -25,8 +25,8 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
   따라서 G(z)를 minimize하고, D(x)를 maximize해야 한다고 한다.....??
   
   이해가 안가서 자료를 찾다가 도움이 될만한 <a href="https://everyday-deeplearning.tistory.com/entry/%EC%B4%88-%EA%B0%84%EB%8B%A8-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0Generative-Models-GAN">블로그</a>를 발견했다.<br>
-  X~Pdata(x) = 실제 데이터에 대한 확률분포에서 샘플링한 데이터<br>
-  Z~Pz(z) = 일반적으로 가우시안분포를 사용하는 임의의 노이즈에서 샘플링한 데이터<br>
+  X ~ Pdata(x) = 실제 데이터에 대한 확률분포에서 샘플링한 데이터<br>
+  Z ~ Pz(z) = 일반적으로 가우시안분포를 사용하는 임의의 노이즈에서 샘플링한 데이터<br>
   학습: <b>D모델은 V(D,G)가 최대</b>가 되도록 학습을 진행하고, <b>G모델은 V(D,G)가 최소</b>가 되도록 학습한다고 한다.
   
   > 샘플 코드<br>
