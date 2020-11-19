@@ -16,10 +16,18 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
   ![image](https://user-images.githubusercontent.com/38601861/99606611-6f1dbb80-2a4d-11eb-805a-1e3409ea21d8.png)
   GAN 논문에 처음 등장하는 수식이다. 이 식에 나오는 E는 Expected Value(기댓값)의 첫글자로 E(x)에서 x에대한 기댓값을 의미한다.<br>
   예를 들어 정육면체 주사위의 기댓값은 다음과 같이 구할 수 있다.<br>
-  ![image](https://user-images.githubusercontent.com/38601861/99607308-e1db6680-2a4e-11eb-8919-5165c63d987a.png)
+  ![image](https://user-images.githubusercontent.com/38601861/99607308-e1db6680-2a4e-11eb-8919-5165c63d987a.png)<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;출처: https://en.wikipedia.org/wiki/Expected_value
   
   D(x)는 Discriminator 모델의 예측 결과로, 원본 데이터인 x가 들어갔을때는 1에 가깝게 출력해야하고, fake 데이터인 G(z)가 들어갔을때는 0에 가까운 결과를 출력해야 한다.<br>
-  D(x)가 1이면 log(D(x))는 0이 되고, D(G(z))가 0이면 log(1-D(G(z)))또한 log1이기 때문에 0이 된다. 
+  D(x)가 1이면 log(D(x))는 0이 되고, D(G(z))가 0이면 log(1-D(G(z)))또한 log1이기 때문에 0이 된다. <br>
+  반대로 Generator모델이 잘 학습된 경우에는 D(G(z))가 1이 나오기 때문에, log(1-D(G(z)))값은 log0 = -무한대 값이 된다.<br>
+  따라서 G(z)를 minimize하고, D(x)를 maximize해야 한다고 한다.....??
+  
+  이해가 안가서 자료를 찾다가 도움이 될만한 <a href="https://everyday-deeplearning.tistory.com/entry/%EC%B4%88-%EA%B0%84%EB%8B%A8-%EB%85%BC%EB%AC%B8-%EB%A6%AC%EB%B7%B0Generative-Models-GAN">블로그</a>를 발견했다.<br>
+  X~Pdata(x) = 실제 데이터에 대한 확률분포에서 샘플링한 데이터<br>
+  Z~Pz(z) = 일반적으로 가우시안분포를 사용하는 임의의 노이즈에서 샘플링한 데이터<br>
+  학습: <b>D모델은 V(D,G)가 최대</b>가 되도록 학습을 진행하고, <b>G모델은 V(D,G)가 최소</b>가 되도록 학습한다고 한다.
   
   > 샘플 코드<br>
   GAN에 대한 샘플 코드는 <a href="https://www.tensorflow.org/tutorials/generative/dcgan?hl=ko">tensorflow 공식 문서</a>에 있는 Generator와 Discriminator 두 모델의 Keras layer들을 살펴볼거다.
@@ -42,7 +50,7 @@ styleGAN2-ada 코드를 돌려보다가, 논문을 거슬러가면서 공부할 
         model.add(layers.Conv2DTranspose(64, (5, 5), strides=(2, 2), padding='same', use_bias=False))
         assert model.output_shape == (None, 14, 14, 64)
         model.add(layers.BatchNormalization())
-        model.add(layers.LeakyReLU())
+        model.add(layers.LeakyReLU(
 
         model.add(layers.Conv2DTranspose(1, (5, 5), strides=(2, 2), padding='same', use_bias=False, activation='tanh'))
         assert model.output_shape == (None, 28, 28, 1)
