@@ -85,4 +85,10 @@ corrwith은 사용해본적이 없어서 찾아봤는데, <a href="https://rfrie
   
   # dl libraries
   import keras
+  from keras import backend as K
+  from keras.models import Sequential
+  from keras.layers import Dense, merge
+  from optimizers import Adam, SGD, Adagrad, adadelta, RMSprop
+  from kers.utils import to_categorical
+  from keras.utils.vis_utils import model_to_dot
   
