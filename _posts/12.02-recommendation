@@ -4,3 +4,13 @@ date: 2020-12-02 13:50:00 -0400
 categories: Recommendation
 ---
 내술노트 개발하다가 추천 시스템 공부 해야해서 만든 포스트
+
+추천 시스템을 공부하려면 우선 "유저"와 "콘텐츠" 데이터가 있어야 추천을 할 수 있을거 같은데, 그 데이터를 만들 수는 없으니 캐글을 뒤지기 시작했다.<br>
+그러다가 <a href="https://www.kaggle.com/kanncaa1/recommendation-systems-tutorial">Recommendation Systems Tutorial notebook</a>을 발견하고, 여기서부터 시작하기로 했다.
+
+추천시스템을 검색하면 가장 기초적인? 방법이 collborative filter인것 같다. 해당 노트북에서는 프로그래밍을 위해서 네 단계로 나눠났지만,<br>
+간단히 말해서 나랑 가장 비슷한 성향의 유저를 찾고, 그 유저가 본 영화중에 내가 아직 안 본 영화를 추천하는 방식이다.<br>
+단점도 언급되어 있는데, 유저기반이다보니 유저가 늘어나면 computing 부하가 걸리고, 유저의 취향 변화에 빠르게 대응하지 못한다고 한다.
+
+그래서 다른 방법으로 item based CF(Collaborative Filter)방식을 사용할 수도 있다.<br>
+여기서는 유저x영화 매트릭스(테이블,행렬)에서 column(영화)간의 유사도를 계산해서, 비슷한 영화를 찾는다. 
