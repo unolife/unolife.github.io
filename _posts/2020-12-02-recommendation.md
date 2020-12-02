@@ -21,7 +21,7 @@ categories: Recommendation
     movie = pd.read_csv('./movie.csv')
     print(movie.columns)
     
-    movie = movie.loc[:,["movieId,"title"]]
+    movie = movie.loc[:,["movieId","title"]]
     
     rating = pd.read_csv("./rating.csv")
     print(rating.columns)
@@ -42,3 +42,5 @@ categories: Recommendation
     similarity_with_other_movies.head() # notebook에서 할경우
   ```
 corrwith은 사용해본적이 없어서 찾아봤는데, <a href="https://rfriend.tistory.com/405">블로그</a>를 통해 새로 알게된 사실은 <br> corr은 두 변수간의 상관관계이고, corrwith은 하나의 변수와 나머지 모든 변수간의 상관관계를 측정한다고 한다.
+
+
