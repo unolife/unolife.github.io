@@ -43,4 +43,11 @@ categories: Recommendation
   ```
 corrwith은 사용해본적이 없어서 찾아봤는데, <a href="https://rfriend.tistory.com/405">블로그</a>를 통해 새로 알게된 사실은 <br> corr은 두 변수간의 상관관계이고, corrwith은 하나의 변수와 나머지 모든 변수간의 상관관계를 측정한다고 한다.
 
+--------------------------------------------------------------------------------------<br>
+
+우선 기본적인거는 살펴 봤으니, 좀 더 전문적인 버전을 찾아봤다. <a href="https://www.kaggle.com/rajmehra03/cf-based-recsys-by-low-rank-matrix-factorization">CF Based RecSys by Low Rank Matrix Factorization</a>이라는 노트북을 찾았는데,<br> 
+문제는 제목부터 어렵다... Low Rank Matrix Factorizaion, 사전을 찾아봤더니 factorizaiont은 인수분해인데 문제는 앞에 rank가 붙는순간 이게 선형대수로 넘어간다...<br>
+여기저기 찾아봤더니 Andrew Ng교수님의 강의중에 Recommender System강의 내용을 다루는 블로그들이 있었다.(3학년때 잠깐 들었던 기억이 있는데... 다시 봐야겠다 ㅠㅠ)<br>
+
+
 
