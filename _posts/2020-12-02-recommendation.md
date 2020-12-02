@@ -50,4 +50,39 @@ corrwith은 사용해본적이 없어서 찾아봤는데, <a href="https://rfrie
 여기저기 찾아봤더니 Andrew Ng교수님의 강의중에 Recommender System강의 내용을 다루는 블로그들이 있었다.(3학년때 잠깐 들었던 기억이 있는데... 다시 봐야겠다 ㅠㅠ)<br>
 우선 <a href="https://www.youtube.com/playlist?list=PLLssT5z_DsK-h9vYZkQkYNWcItqhlRJLN">전체 강의</a> 중에 Recommender System을 다루는 16강만 들어야겠다.
 
-
+노트북에 나온 코드부터 살펴보는걸 먼저 해야겠다.
+- 라이브러리 import
+  ```python
+  # Ignore the warnings
+  import warnings
+  warnings.filterwarnings('always')
+  warnings.filterwarnings('ignore')
+  
+  # data visualisation and manipulation
+  import numpy as np
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  from matplotlib import style
+  import seaborn as sns
+  
+  # configure
+  # sets matplotlib to incline and displays graphs below the corresponding cell.
+  # just for ipnb or colab
+  %matplotlib inline
+  style.use('fivethirtyeight')
+  sns.set(style='whitegrid',color_codes=True) 
+  
+  # model selection
+  from sklearn.model_selection import train_test_split
+  from sklearn.model_selection import KFold
+  from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, roc_curve, roc_auc_score
+  from sklearn.metrics import mean_absolute_error
+  from sklearn.model_selection import GridSearchCV
+  from sklearn.preprocesing import LabelEncoder
+  
+  # preprocess
+  keras.preprocessing.image import ImageDataGenerator
+  
+  # dl libraries
+  import keras
+  
