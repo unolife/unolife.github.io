@@ -50,6 +50,12 @@ corrwith은 사용해본적이 없어서 찾아봤는데, <a href="https://rfrie
 여기저기 찾아봤더니 Andrew Ng교수님의 강의중에 Recommender System강의 내용을 다루는 블로그들이 있었다.(3학년때 잠깐 들었던 기억이 있는데... 다시 봐야겠다 ㅠㅠ)<br>
 우선 <a href="https://www.youtube.com/playlist?list=PLLssT5z_DsK-h9vYZkQkYNWcItqhlRJLN">전체 강의</a> 중에 Recommender System을 다루는 16강만 들어야겠다.
 
+강의를 듣고 대략적인 느낌은 잡았다, rank가 선형대수때 나오는 미지수를 포함한 벡터 숫자였었고, matrix factorization 또한 인수분해처럼 행렬을 분해하는건데, 아래 그림처럼 유저x영화 행렬을 유저x장르. 장르x영화로 나눔으로써 저장 공간을 절약하는 방식을 말하는거였다.<br>
+![KakaoTalk_20201203_151204315](https://user-images.githubusercontent.com/38601861/101017770-e145e280-35ad-11eb-9cc3-58e531ff34d5.jpg)
+
+![KakaoTalk_20201203_151202755](https://user-images.githubusercontent.com/38601861/101017808-ea36b400-35ad-11eb-8265-b830e4912984.jpg)
+
+
 노트북에 나온 코드부터 살펴보는걸 먼저 해야겠다.
 - 라이브러리 import
   ```python
